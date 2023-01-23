@@ -1,3 +1,5 @@
+
+
 class RenderHtmlStatic {
     static displayProductsTopNav() {
         document.getElementById('showProducts').classList.remove('hide');
@@ -71,6 +73,8 @@ class RenderHtmlActive {
     }
     static handleAddForm(e){
         e.preventDefault();
+        // keep database clear from undefined and unnecessary values
+        Util.validateFormFields(e.target);
         const productType = e.target.elements.type.value;
         let res = {};
         switch (productType) {
